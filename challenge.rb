@@ -4,7 +4,7 @@ class Challenge
   def perform_naive
     stations = Hash.new {|hsh, key| hsh[key] = [] }
 
-    File.open("measurements.txt", "r") do |file|
+    File.open("measurements_test.txt", "r") do |file|
       file.each_line do |line|
         location, temperature = line.chomp.split(';')
 
