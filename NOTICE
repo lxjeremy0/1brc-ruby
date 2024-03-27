@@ -1,0 +1,6 @@
+Changes:
+ - Added a NOTICE file to comply with the Apache License 2.0.
+ - Changed the README to adapt for a specific challenge.
+ - Removed calculate_average_zmq.rb, average_execution, create_measurements.rb.md, time_measurements_creation
+ - Added gems and rspec setup
+ - Renamed calculate_average.rb to challenge.rb and modified solution
