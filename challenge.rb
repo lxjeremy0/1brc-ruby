@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Challenge
-  def perform_naive
+  def perform_simple
     stations = Hash.new {|hsh, key| hsh[key] = [] }
 
-    File.open("measurements_test.txt", "r") do |file|
+    File.open("measurements.txt", "r") do |file|
       file.each_line do |line|
         location, temperature = line.chomp.split(';')
 
@@ -24,6 +24,6 @@ class Challenge
 
   def perform_optimised
     # TODO Improve performance 🚀
-    perform_naive
+    perform_simple
   end
 end

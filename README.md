@@ -28,4 +28,4 @@ The provided spec will:
 
 You can profile your code by running `./profile.sh` to see where your time is going.
 
-When you think your implementation is getting good, try it out on the ~13GB `measurements.txt`. 
+When you think your implementation is getting good, try it out on the ~13GB `measurements.txt` by running `time (ruby ./run_simple.rb); time (ruby ./run.rb)` from your shell. 

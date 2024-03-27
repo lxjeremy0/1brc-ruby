@@ -7,12 +7,12 @@ RSpec.describe Challenge do
   let(:challenge) { Challenge.new }
 
   it 'is correct' do
-    expect(challenge.perform_optimised).to eq(challenge.perform_naive)
+    expect(challenge.perform_optimised).to eq(challenge.perform_simple)
   end
 
   it 'goes fast' do
     Benchmark.bmbm do |bench|
-      bench.report("naive     🐌") { challenge.perform_naive }
+      bench.report("naive     🐌") { challenge.perform_simple }
       bench.report("optimised 🚀") { challenge.perform_optimised }
     end
   end
