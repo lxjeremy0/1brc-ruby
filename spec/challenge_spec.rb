@@ -12,7 +12,7 @@ RSpec.describe Challenge do
 
   it 'goes fast' do
     Benchmark.bmbm do |bench|
-      bench.report("naive     🐌") { challenge.perform_simple }
+      bench.report("simple    🐌") { challenge.perform_simple }
       bench.report("optimised 🚀") { challenge.perform_optimised }
     end
   end
