@@ -28,4 +28,8 @@ The provided spec will:
 
 You can profile your code by running `./profile.sh` to see where your time is going.
 
-When you think your implementation is getting good, try it out on the ~13GB `measurements.txt` by running `time (ruby ./run_simple.rb); time (ruby ./run.rb)` from your shell. 
+When you think your implementation is getting good, try it out on the ~13GB `measurements.txt` by changing `Challenge::MEASUREMENTS_FILE_NAME`.  
+
+You can try files of various sizes. The spec will cache the results of `perform_simple` per file name.
+
+The spec executes `perform_optimised` once per run.
