@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Challenge
-  MEASUREMENTS_FILE_NAME = 'measurements.txt'
+  MEASUREMENTS_FILE_NAME = 'measurements_test.txt'
 
   def perform_simple
     stations = Hash.new {|hsh, key| hsh[key] = [] }

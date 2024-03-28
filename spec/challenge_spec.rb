@@ -8,47 +8,68 @@ require "./challenge.rb"
 RSpec.describe Challenge do
   let(:challenge) { Challenge.new }
 
-  let(:simple_bench_cache_file) { "simple_bench.json" }
-
-  let(:simple_result_cache_file) { "simple_result.json" }
-
   let(:measurements_test_file_key) do
     described_class::MEASUREMENTS_FILE_NAME
   end
 
-  let(:cached_perform_simple_total_time) do
+  def get_via_cache(path, key, &block)
     cache = begin
-        JSON.parse(File.read(simple_bench_cache_file))
-      rescue
-        {}
-      end
+      JSON.parse(File.read(path))
+    rescue
+      {}
+    end
 
-    if cache[measurements_test_file_key].nil?
-      cache[measurements_test_file_key] = Benchmark.measure { challenge.perform_simple }.total
+    if cache[key].nil?
+      cache[key] = yield
 
-      File.open(simple_bench_cache_file, "w") do |file|
+      File.open(path, "w") do |file|
         file.write cache.to_json
       end
     end
 
-    cache[measurements_test_file_key]
+    cache[key]
+  end
+
+  let(:cached_perform_simple_result) do
+    get_via_cache("simple_result.json", measurements_test_file_key) do
+      challenge.perform_simple
+    end
+  end
+
+  let(:cached_perform_simple_total_time) do
+    get_via_cache("simple_bench.json", measurements_test_file_key) do
+      Benchmark.measure { challenge.perform_simple }.total
+    end
+  end
+
+  let(:perform_optimised) do
+    result = nil
+    
+    bench = Benchmark.measure do
+      result = challenge.perform_optimised
+    end
+
+    {
+      total: bench.total,
+      result: result,
+    }
   end
 
   it "is correct" do
-    expect(challenge.perform_optimised).to eq(challenge.perform_simple)
+    expect(perform_optimised[:result]).to eq(cached_perform_simple_result)
   end
 
   it "improves performance" do
-    perform_optimised_total_time = Benchmark.measure { challenge.perform_optimised }.total
+    perform_optimised_total_time = perform_optimised[:total]
 
     improvement_factor = cached_perform_simple_total_time / perform_optimised_total_time
 
     puts <<~REPORT
            
-           Simple:\t\t#{cached_perform_simple_total_time.round(1)}s
+      Simple:\t\t#{cached_perform_simple_total_time.round(1)}s
       Optimised:\t#{perform_optimised_total_time.round(1)}s
       Improvement:\t#{improvement_factor.round(1)}x
-         REPORT
+    REPORT
 
     expect(improvement_factor).to be > 1
   end
