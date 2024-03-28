@@ -20,7 +20,7 @@ bundle exec ruby create_measurements.rb 1000000000 &
 # Doing the Challenge 
 Open up `challenge.rb` and fill in `perform_optimised`. 
 
-You can run `bundle exec guard` to trigger the spec on save.
+You can run `bundle exec guard` to trigger the spec on save (only triggers when saving the spec file).
 
 The provided spec will:
 1. Check against the naive implementation to confirm correctness, and
