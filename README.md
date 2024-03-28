@@ -23,8 +23,8 @@ Open up `challenge.rb` and fill in `perform_optimised`.
 You can run `bundle exec guard` to trigger the spec on save (only triggers when saving the spec file).
 
 The provided spec will:
-1. Check against the naive implementation to confirm correctness, and
-2. Benchmark against the naive implementation to confirm performance improvement.
+1. Check against the simple implementation to confirm correctness, and
+2. Benchmark against the simple implementation to confirm performance improvement.
 
 You can profile your code by running `./profile.sh` to see where your time is going.
 
