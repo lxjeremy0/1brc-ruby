@@ -5,6 +5,8 @@ Ruby edition of the [1BRC](https://github.com/gunnarmorling/1brc/tree/main) Java
 # Setup 
 
 ```bash
+# Clone repo and cd into folder
+
 bundle install
 
 # 10 million measurements, ~10 seconds to generate on an M1 Macbook Pro.
