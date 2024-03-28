@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class Challenge
+  MEASUREMENTS_FILE_NAME = 'measurements.txt'
+
   def perform_simple
     stations = Hash.new {|hsh, key| hsh[key] = [] }
 
-    File.open("measurements.txt", "r") do |file|
+    File.open(MEASUREMENTS_FILE_NAME, "r") do |file|
       file.each_line do |line|
         location, temperature = line.chomp.split(';')
 
