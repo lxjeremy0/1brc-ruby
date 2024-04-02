@@ -42,20 +42,18 @@ Finished in 8.54 seconds (files took 0.58037 seconds to load)
 2 examples, 0 failures
 ```
 
-Get this factor as high as you can.
+Get this factor as high as you can. It may initally be below one, because each run will have a slightly different time.
+
+The spec will cache the results of `perform_simple` per file name and execute `perform_optimised` once per run.
 
 You can profile your code by running `./profile.sh` to see where your time is going.
 
 When you think your implementation is getting good, try it out on the ~13GB `measurements.txt` by changing `Challenge::MEASUREMENTS_FILE_NAME`.  
 
-You can try files of various sizes. The spec will cache the results of `perform_simple` per file name.
-
-The spec executes `perform_optimised` once per run.
-
 # Strategies
 
 Since the goal is fun and learning rather than competition, there aren't any hard and fast rules.
 
-There's lots of prior art in just about every language. The most common theme is concurrency.
+You can use whatever tech you like. There's lots of prior art in just about every language. The most common theme is concurrency.
 
 People have also used SIMD instructions, memory mapped files and many other tricks.
