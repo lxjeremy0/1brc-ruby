@@ -56,4 +56,8 @@ Since the goal is fun and learning rather than competition, there aren't any har
 
 You can use whatever tech you like. There's lots of prior art in just about every language. The most common theme is concurrency.
 
-People have also used SIMD instructions, memory mapped files and many other tricks.
+People have used SIMD instructions, memory mapped files and many other tricks.
+
+Some relevant reading:
+ - https://benhoyt.com/writings/go-1brc/
+ - https://pkolaczk.github.io/disk-parallelism/
