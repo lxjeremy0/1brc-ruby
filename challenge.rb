@@ -16,7 +16,7 @@ class Challenge
 
     stations_aggregated = stations.transform_values do |measurements|
       min, max = measurements.minmax
-      avg = measurements.sum / measurements.size
+      avg = (measurements.sum / measurements.size).round(1)
 
       [min, avg, max]
     end
