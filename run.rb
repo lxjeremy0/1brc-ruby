@@ -1,3 +1,7 @@
 require './challenge.rb'
 
-Challenge.new.perform_optimised
+result = Challenge.new.perform_optimised
+
+if ARGV[0] == '--show'
+  pp result
+end

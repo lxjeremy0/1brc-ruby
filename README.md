@@ -17,6 +17,9 @@ mv measurements.txt measurements_test.txt
 
 # In the background, kick off generation of 1B rows (takes about 12 minutes)
 bundle exec ruby create_measurements.rb 1000000000 &
+
+# View the expected output
+bundle exec ruby run.rb --show
 ```
 
 # Doing the Challenge 
@@ -42,7 +45,7 @@ Finished in 8.54 seconds (files took 0.58037 seconds to load)
 2 examples, 0 failures
 ```
 
-Get this factor as high as you can. It may initally be below one, because each run will have a slightly different time.
+Get this factor as high as you can. It may initially be below one, because each run will have a slightly different time.
 
 The spec will cache the results of `perform_simple` per file name and execute `perform_optimised` once per run.
 
