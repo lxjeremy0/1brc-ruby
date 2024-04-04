@@ -31,13 +31,13 @@ RSpec.describe Challenge do
   end
 
   let(:cached_perform_simple_result) do
-    get_via_cache("simple_result.json", measurements_test_file_key) do
+    get_via_cache("#{File.basename(measurements_test_file_key, '.txt')}.simple_result.json", measurements_test_file_key) do
       challenge.perform_simple
     end
   end
 
   let(:cached_perform_simple_total_time) do
-    get_via_cache("simple_bench.json", measurements_test_file_key) do
+    get_via_cache("#{File.basename(measurements_test_file_key, '.txt')}.simple_bench.json", measurements_test_file_key) do
       Benchmark.measure { challenge.perform_simple }.total
     end
   end
