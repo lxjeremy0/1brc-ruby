@@ -10,7 +10,18 @@ class WeatherStation
 
   # random gaussian
   def measurement
-    (Random.rand * STANDARD_DEVIATION + mean_temperature).round(1)
+    (self.class.random_normal_gausian * STANDARD_DEVIATION + mean_temperature).round(1)
+  end
+
+  # The Marsaglia polar method
+  def self.random_normal_gausian
+    begin
+      v1 = 2.0 * Random.rand - 1.0
+      v2 = 2.0 * Random.rand - 1.0
+      s = v1 * v1 + v2 * v2
+    end while s >= 1.0 || s == 0
+    s = Math.sqrt((-2.0 * Math.log(s)) / s)
+    v1 * s
   end
 end
 
